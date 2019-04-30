@@ -1,0 +1,16 @@
+//
+//  UserData.swift
+//  KKAPI_Demo_Mike
+//
+//  Created by Mike Lai on 2019/4/22.
+//  Copyright © 2019 Mike.Lai. All rights reserved.
+//
+
+import UIKit
+
+class UserInfo : Codable {
+    var access_token : String?
+    var token_type : String?
+    var expires_in : Int?
+    var error : [String]?
+}
