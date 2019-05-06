@@ -22,6 +22,7 @@ class User {
     }
 }
 
+//MARK: - fetch UserToken
 extension User {
     func getToken() -> Single<String>{
         return Single<String>.create(subscribe: { (single) -> Disposable in
@@ -41,16 +42,17 @@ extension User {
     
     func fetchToken()->Single<String>{
         return Single<String>.create(subscribe: { (single) -> Disposable in
-            let body = ["grant_type": APIBody.GrantType.rawValue,"client_id":APIBody.ClientID.rawValue,"client_secret":APIBody.ClientSecret.rawValue]
+            let body = ["grant_type": APIBody.grantType.rawValue,
+                        "client_id":APIBody.clientID.rawValue,
+                        "client_secret":APIBody.clientSecret.rawValue]
             let data = body.toString().data(using: .utf8)!
-            
-            let header = ["Content-Type": APIHeader.ContentType.rawValue]
-            _ = API.share.fetchAPI(APIURL.Oauth.rawValue, method: .post, body: data, header: header).subscribe(onSuccess: { (data) in
-                if let json = try? JSONDecoder.init().decode(UserInfo.self, from: data){
+            let header = ["Content-Type": APIHeader.contentType.rawValue]
+            _ = API.share.fetchAPI(APIURL.oauth.rawValue, method: .post, body: data, header: header).subscribe(onSuccess: { (data) in
+                if let json = try? JSONDecoder.init().decode(OauthData.self, from: data){
                     if let token = json.access_token {
                         single(.success(token))
                     }else{
-                        single(.error(APIError.error))
+                        print(json.error!)
                     }
                 }
             }, onError: { (error) in
@@ -61,17 +63,18 @@ extension User {
     }
 }
 
+//MARK: - fetch PlayList
 extension User{
     func fetchPlayList(type:PlayListType,id:String?) -> Single<Data> {
         return Single<Data>.create(subscribe: { (single) -> Disposable in
-            var path : String = APIURL.PlayList.rawValue
+            var path : String = APIURL.playList.rawValue
             switch type {
-            case .PlayList:
-                path = path + APIURL.PlayListTerritory.rawValue  + APIURL.limit.rawValue
-            case .PlayListDetail:
-                path = path + "/" + (id ?? "") + APIURL.PlayListTerritory.rawValue
+            case .playList:
+                path = path + APIURL.territory.rawValue  + APIURL.limit.rawValue
+            case .playListDetail:
+                path = path + "/" + (id ?? "") + APIURL.territory.rawValue
             }
-            let header : [String:String] = ["Authorization":APIHeader.Auth.rawValue + User.current.token]
+            let header : [String:String] = ["Authorization":APIHeader.authorization.rawValue + User.current.token]
             _ = API.share.fetchAPI(path, method: .get, body: nil, header: header).subscribe(onSuccess: { (data) in
                 single(.success(data))
             }, onError: { (error) in

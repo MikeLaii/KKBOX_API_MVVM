@@ -27,7 +27,7 @@ class FavoriteViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pushToAlbumDetailVC"{
             let vc = segue.destination as! AlbumDetailVC
-            let data = sender as! FavoriteData
+            let data = sender as! AlbumData
             vc.albumData = data
             vc.navigationItem.title = data.name
         }
@@ -36,15 +36,15 @@ class FavoriteViewController: UIViewController {
 
 extension FavoriteViewController{
     func initial(){
-        disposebag = DisposeBag()
         viewModel = FavoriteViewModel()
+        disposebag = DisposeBag()
     }
     func binding(){
         viewModel.output.dataList.asDriver(onErrorJustReturn: []).drive(tableView.rx.items(cellIdentifier: "FavoriteTVCellID", cellType: FavoriteTVCell.self)){
             (_,data,cell) in
             cell.setupCell(title: data.name, imageURL: data.imageURL)
         }.disposed(by: disposebag)
-        tableView.rx.modelSelected(FavoriteData.self).subscribe(onNext: { (data) in
+        tableView.rx.modelSelected(AlbumData.self).subscribe(onNext: { (data) in
             self.performSegue(withIdentifier: "pushToAlbumDetailVC", sender: data)
         }).disposed(by: disposebag)
     }

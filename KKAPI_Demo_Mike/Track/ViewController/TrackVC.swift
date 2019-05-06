@@ -26,7 +26,7 @@ class TrackVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pushToAlbumDetailVC"{
             let vc = segue.destination as! AlbumDetailVC
-            let data = sender as! FavoriteData
+            let data = sender as! AlbumData
             vc.albumData = data
             vc.navigationItem.title = data.name
         }
@@ -45,9 +45,9 @@ extension TrackVC  {
             cell.setupCell(title: data.name, imageURL: data.album.images.first!.url)
         }.disposed(by: disposeBag)
         tableView.rx.modelSelected(PlayListDataByIDTracksData.self).subscribe(onNext: { (data) in
-            let newData = FavoriteData()
-            newData.setData(data: data)
-            self.performSegue(withIdentifier: "pushToAlbumDetailVC", sender: newData)
+            let albumData = AlbumData()
+            albumData.setData(data: data)
+            self.performSegue(withIdentifier: "pushToAlbumDetailVC", sender: albumData)
         }).disposed(by: disposeBag)
     }
     

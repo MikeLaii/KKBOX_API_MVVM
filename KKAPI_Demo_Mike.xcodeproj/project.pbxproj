@@ -14,7 +14,7 @@
 		803DF77F2277E2100046709A /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DF77E2277E2100046709A /* TrackViewModel.swift */; };
 		803DF7822277F87D0046709A /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DF7812277F87D0046709A /* AlbumViewModel.swift */; };
 		803DF78422782DE40046709A /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DF78322782DE40046709A /* FavoriteViewModel.swift */; };
-		803DF78622783E440046709A /* SigninModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DF78522783E440046709A /* SigninModel.swift */; };
+		803DF78622783E440046709A /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DF78522783E440046709A /* SignInModel.swift */; };
 		8088001F227694D300442160 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880005227694D200442160 /* ViewController.swift */; };
 		80880020227694D300442160 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880006227694D200442160 /* TabBarViewController.swift */; };
 		80880025227694D300442160 /* PlayListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880012227694D200442160 /* PlayListTVCell.swift */; };
@@ -22,7 +22,7 @@
 		80880027227694D300442160 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880016227694D200442160 /* RealmManager.swift */; };
 		80880028227694D300442160 /* PlayListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880018227694D200442160 /* PlayListData.swift */; };
 		80880029227694D300442160 /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880019227694D200442160 /* RealmData.swift */; };
-		8088002A227694D300442160 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088001A227694D200442160 /* UserData.swift */; };
+		8088002A227694D300442160 /* OauthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088001A227694D200442160 /* OauthData.swift */; };
 		8088002B227694D300442160 /* TrackData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088001B227694D200442160 /* TrackData.swift */; };
 		8088002C227694D300442160 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088001D227694D200442160 /* APIType.swift */; };
 		8088002D227694D300442160 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088001E227694D200442160 /* API.swift */; };
@@ -71,7 +71,7 @@
 		803DF77E2277E2100046709A /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		803DF7812277F87D0046709A /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		803DF78322782DE40046709A /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
-		803DF78522783E440046709A /* SigninModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninModel.swift; sourceTree = "<group>"; };
+		803DF78522783E440046709A /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		80880005227694D200442160 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		80880006227694D200442160 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		80880012227694D200442160 /* PlayListTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListTVCell.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		80880016227694D200442160 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		80880018227694D200442160 /* PlayListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListData.swift; sourceTree = "<group>"; };
 		80880019227694D200442160 /* RealmData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
-		8088001A227694D200442160 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		8088001A227694D200442160 /* OauthData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthData.swift; sourceTree = "<group>"; };
 		8088001B227694D200442160 /* TrackData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackData.swift; sourceTree = "<group>"; };
 		8088001D227694D200442160 /* APIType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
 		8088001E227694D200442160 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				80880005227694D200442160 /* ViewController.swift */,
-				803DF78522783E440046709A /* SigninModel.swift */,
+				803DF78522783E440046709A /* SignInModel.swift */,
 				80880006227694D200442160 /* TabBarViewController.swift */,
 			);
 			path = Controller;
@@ -222,7 +222,6 @@
 			children = (
 				80880018227694D200442160 /* PlayListData.swift */,
 				80880019227694D200442160 /* RealmData.swift */,
-				8088001A227694D200442160 /* UserData.swift */,
 				8088001B227694D200442160 /* TrackData.swift */,
 			);
 			path = Data;
@@ -316,6 +315,7 @@
 		8088005122769E2100442160 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				8088001A227694D200442160 /* OauthData.swift */,
 				8088005222769E5500442160 /* User.swift */,
 			);
 			path = User;
@@ -634,7 +634,7 @@
 				80880026227694D300442160 /* PlayListViewController.swift in Sources */,
 				80880020227694D300442160 /* TabBarViewController.swift in Sources */,
 				803DF78422782DE40046709A /* FavoriteViewModel.swift in Sources */,
-				8088002A227694D300442160 /* UserData.swift in Sources */,
+				8088002A227694D300442160 /* OauthData.swift in Sources */,
 				80880027227694D300442160 /* RealmManager.swift in Sources */,
 				8088002C227694D300442160 /* APIType.swift in Sources */,
 				803DF77D2277E14A0046709A /* TrackTVCell.swift in Sources */,
@@ -642,7 +642,7 @@
 				80880028227694D300442160 /* PlayListData.swift in Sources */,
 				8088002B227694D300442160 /* TrackData.swift in Sources */,
 				803DF77B2277E11D0046709A /* TrackVC.swift in Sources */,
-				803DF78622783E440046709A /* SigninModel.swift in Sources */,
+				803DF78622783E440046709A /* SignInModel.swift in Sources */,
 				8088003E227694DF00442160 /* AlbumDetailVC.swift in Sources */,
 				8088001F227694D300442160 /* ViewController.swift in Sources */,
 				80880025227694D300442160 /* PlayListTVCell.swift in Sources */,

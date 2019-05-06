@@ -29,7 +29,7 @@ class TrackViewModel {
     }
     
     func getTrackList(){
-        _ = User.current.fetchPlayList(type: .PlayListDetail, id: input.id).subscribe(onSuccess: { (data) in
+        _ = User.current.fetchPlayList(type: .playListDetail, id: input.id).subscribe(onSuccess: { (data) in
             if let json = try? JSONDecoder().decode(PlayListDataByID.self, from: data ){
                 self.dataListRelay.accept(json.tracks.data)
             }

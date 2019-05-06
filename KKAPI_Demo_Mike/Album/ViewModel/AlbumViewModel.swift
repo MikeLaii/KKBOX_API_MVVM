@@ -12,7 +12,7 @@ import RxSwift
 
 class AlbumViewModel {
     struct AlbumInput {
-        var model : FavoriteData
+        var model : AlbumData
     }
     struct AlbumOutput {
         let albumName : Driver<String>
@@ -32,9 +32,9 @@ class AlbumViewModel {
     let artistImageURLRelay: BehaviorRelay<String> = BehaviorRelay(value: "")
     let isFavoritedRelay: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
-    let PublishTap = PublishSubject<Void>()
+    let publishTap = PublishSubject<Void>()
     
-    init(_ model : FavoriteData) {
+    init(_ model : AlbumData) {
         input = AlbumInput.init(model: model)
         output = AlbumOutput.init(albumName: albumNameRelay.asDriver(),
                                   albumReleaseDate: albumReleaseDateRelay.asDriver(),
@@ -54,7 +54,7 @@ extension AlbumViewModel{
         artistNameRelay.accept(input.model.albumArtistName)
         artistImageURLRelay.accept(input.model.albumArtistImageURL)
         isFavoritedRelay.accept(isFavorited())
-        _ = PublishTap.bind { [weak self] _ in
+        _ = publishTap.bind { [weak self] _ in
             let nextState = !(self?.isFavoritedRelay.value)!
             self?.realmAccess(nextState, completion: { (success) in
                 self?.isFavoritedRelay.accept(nextState)
@@ -62,7 +62,7 @@ extension AlbumViewModel{
         }
     }
     func isFavorited() -> Bool{
-        let realmData = RealmManager.share.realm.objects(FavoriteData.self)
+        let realmData = RealmManager.share.realm.objects(AlbumData.self)
         return realmData.filter("id = '\(input.model.id)'").count == 0 ? false : true
     }
     func realmAccess(_ isFavorited:Bool , completion:(Bool)->Void){
@@ -83,8 +83,8 @@ extension AlbumViewModel{
                 }
             }
         }else{
-            if let object = realm.realm.objects(FavoriteData.self).filter("id = '\(input.model.id)'").first{
-                input.model = FavoriteData.init(value: object)
+            if let object = realm.realm.objects(AlbumData.self).filter("id = '\(input.model.id)'").first{
+                input.model = AlbumData.init(value: object)
                 realm.realm.beginWrite()
                 realm.realm.delete(object)
                 do {

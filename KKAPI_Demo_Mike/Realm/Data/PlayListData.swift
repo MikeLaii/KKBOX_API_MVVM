@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class PlayListData : Codable {
     var data : [PlayListDataDetail]

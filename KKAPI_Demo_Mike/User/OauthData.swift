@@ -8,9 +8,7 @@
 
 import UIKit
 
-class UserInfo : Codable {
+class OauthData : Codable {
     var access_token : String?
-    var token_type : String?
-    var expires_in : Int?
-    var error : [String]?
+    var error : String?
 }

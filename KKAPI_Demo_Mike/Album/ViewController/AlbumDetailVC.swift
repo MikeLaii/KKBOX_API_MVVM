@@ -19,7 +19,7 @@ class AlbumDetailVC: UIViewController {
     @IBOutlet weak var artistNameLabel: UILabel!
     
     var viewModel : AlbumViewModel!
-    var albumData : FavoriteData!
+    var albumData : AlbumData!
     var disposeBag : DisposeBag!
     var button : UIButton!
     
@@ -58,6 +58,6 @@ extension AlbumDetailVC {
                 self?.button.setImage(UIImage.init(named: "defaultLove"), for: .normal)
             }
             }.disposed(by: disposeBag)
-        button.rx.tap.subscribe(viewModel.PublishTap).disposed(by: disposeBag)
+        button.rx.tap.subscribe(viewModel.publishTap).disposed(by: disposeBag)
     }
 }

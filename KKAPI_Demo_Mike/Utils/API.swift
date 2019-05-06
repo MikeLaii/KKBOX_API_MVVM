@@ -21,6 +21,9 @@ class API {
             request.httpBody = body
             request.allHTTPHeaderFields = header
             let task = URLSession.shared.dataTask(with: request, completionHandler: { (data,_, error) in
+                if let _ = error {
+                    single(.error(APIError.error))
+                }
                 guard let data = data else{return}
                 single(.success(data))
             })
@@ -31,4 +34,3 @@ class API {
         })
     }
 }
-

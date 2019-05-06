@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import RxSwift
 
 class ViewController: UIViewController {
     
-    var model : SigninModel!
+    var model : SignInModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initial()
@@ -20,9 +20,9 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
-
+    
     func initial(){
-        model = SigninModel()
+        model = SignInModel()
         print("file url:\(RealmManager.share.realm.configuration.fileURL!)")
     }
     func requestAuth(){

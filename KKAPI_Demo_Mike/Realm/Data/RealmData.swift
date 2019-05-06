@@ -12,14 +12,14 @@ import RealmSwift
 class UserData: Object {
 
     @objc dynamic var token : String = ""
-    dynamic var favoriteList = List<FavoriteData>()
+    dynamic var favoriteList = List<AlbumData>()
     
     override static func primaryKey() -> String? {
         return "token"
     }
 }
 
-class FavoriteData : Object{
+class AlbumData : Object{
     
     @objc dynamic var id : String = ""
     @objc dynamic var name : String = ""
@@ -33,7 +33,7 @@ class FavoriteData : Object{
     override static func primaryKey() -> String {
         return "id"
     }
-    
+
     func setData(data : PlayListDataByIDTracksData) {
         self.id = data.id
         self.name = data.name
