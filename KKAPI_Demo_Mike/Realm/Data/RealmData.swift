@@ -21,7 +21,7 @@ class UserData: Object {
 
 class AlbumData : Object{
     
-    @objc dynamic var id : String = ""
+    @objc dynamic var id: String = ""
     @objc dynamic var name : String = ""
     @objc dynamic var imageURL : String = ""
     @objc dynamic var albumName : String = ""

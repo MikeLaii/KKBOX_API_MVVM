@@ -34,7 +34,7 @@ class FavoriteViewController: UIViewController {
     }
 }
 
-extension FavoriteViewController{
+extension FavoriteViewController : ViewControllerProtocol{
     func initial(){
         viewModel = FavoriteViewModel()
         disposebag = DisposeBag()

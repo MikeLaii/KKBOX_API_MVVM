@@ -33,7 +33,7 @@ class TrackVC: UIViewController {
     }
 }
 
-extension TrackVC  {
+extension TrackVC : ViewControllerProtocol {
    
     func initial(){
         viewModel = TrackViewModel.init(id)

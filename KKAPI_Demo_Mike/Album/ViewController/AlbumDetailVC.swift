@@ -31,7 +31,7 @@ class AlbumDetailVC: UIViewController {
     }
 }
 
-extension AlbumDetailVC {
+extension AlbumDetailVC : ViewControllerProtocol {
     func initial(){
         disposeBag = DisposeBag()
         viewModel = AlbumViewModel.init(albumData)

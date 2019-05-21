@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SigninModel {
+class SignInModel {
+    
     func defaultSignIn(completion:@escaping (Bool)->Void){
         _ = User.current.getToken().subscribe(onSuccess: { (token) in
             if !token.isEmpty{
@@ -31,8 +32,6 @@ class SigninModel {
             }else{
                 completion(false)
             }
-        }, onError: { (error) in
-            print("requestAuth failed")
         })
     }
 }

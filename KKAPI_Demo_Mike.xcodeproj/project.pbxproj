@@ -15,6 +15,7 @@
 		803DF7822277F87D0046709A /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DF7812277F87D0046709A /* AlbumViewModel.swift */; };
 		803DF78422782DE40046709A /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DF78322782DE40046709A /* FavoriteViewModel.swift */; };
 		803DF78622783E440046709A /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DF78522783E440046709A /* SignInModel.swift */; };
+		8044EB882293CD9700F9512F /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8044EB872293CD9700F9512F /* ViewControllerProtocol.swift */; };
 		8088001F227694D300442160 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880005227694D200442160 /* ViewController.swift */; };
 		80880020227694D300442160 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880006227694D200442160 /* TabBarViewController.swift */; };
 		80880025227694D300442160 /* PlayListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880012227694D200442160 /* PlayListTVCell.swift */; };
@@ -72,6 +73,7 @@
 		803DF7812277F87D0046709A /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		803DF78322782DE40046709A /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		803DF78522783E440046709A /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		8044EB872293CD9700F9512F /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
 		80880005227694D200442160 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		80880006227694D200442160 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		80880012227694D200442160 /* PlayListTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListTVCell.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				8088FFDD2276949600442160 /* Assets.xcassets */,
 				8088FFDF2276949600442160 /* LaunchScreen.storyboard */,
 				8088FFE22276949600442160 /* Info.plist */,
+				8044EB872293CD9700F9512F /* ViewControllerProtocol.swift */,
 			);
 			path = KKAPI_Demo_Mike;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
@@ -570,6 +574,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
@@ -637,6 +642,7 @@
 				8088002A227694D300442160 /* OauthData.swift in Sources */,
 				80880027227694D300442160 /* RealmManager.swift in Sources */,
 				8088002C227694D300442160 /* APIType.swift in Sources */,
+				8044EB882293CD9700F9512F /* ViewControllerProtocol.swift in Sources */,
 				803DF77D2277E14A0046709A /* TrackTVCell.swift in Sources */,
 				80880029227694D300442160 /* RealmData.swift in Sources */,
 				80880028227694D300442160 /* PlayListData.swift in Sources */,

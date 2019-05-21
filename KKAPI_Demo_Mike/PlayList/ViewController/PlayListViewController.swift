@@ -32,7 +32,7 @@ class PlayListViewController: UIViewController  {
     }
 }
 
-extension PlayListViewController {
+extension PlayListViewController : ViewControllerProtocol{
     func initial(){
         viewModel = PlayListViewModel()
         disposeBag = DisposeBag()
@@ -44,6 +44,10 @@ extension PlayListViewController {
             }.disposed(by: disposeBag)
         tableView.rx.modelSelected(PlayListDataDetail.self).subscribe(onNext: { [weak self](data) in
             self?.performSegue(withIdentifier: "pushToTrackVC", sender: data)
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "track") as! PlayListViewController
+            self?.navigationController?.pushViewController(vc, animated: true)
         }).disposed(by: disposeBag)
+        
     }
 }
