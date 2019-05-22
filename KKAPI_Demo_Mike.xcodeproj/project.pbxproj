@@ -16,6 +16,7 @@
 		803DF78422782DE40046709A /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DF78322782DE40046709A /* FavoriteViewModel.swift */; };
 		803DF78622783E440046709A /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803DF78522783E440046709A /* SignInModel.swift */; };
 		8044EB882293CD9700F9512F /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8044EB872293CD9700F9512F /* ViewControllerProtocol.swift */; };
+		807573302294FDB000AC63D5 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8075732F2294FDB000AC63D5 /* AlertManager.swift */; };
 		8088001F227694D300442160 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880005227694D200442160 /* ViewController.swift */; };
 		80880020227694D300442160 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880006227694D200442160 /* TabBarViewController.swift */; };
 		80880025227694D300442160 /* PlayListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880012227694D200442160 /* PlayListTVCell.swift */; };
@@ -23,7 +24,7 @@
 		80880027227694D300442160 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880016227694D200442160 /* RealmManager.swift */; };
 		80880028227694D300442160 /* PlayListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880018227694D200442160 /* PlayListData.swift */; };
 		80880029227694D300442160 /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80880019227694D200442160 /* RealmData.swift */; };
-		8088002A227694D300442160 /* OauthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088001A227694D200442160 /* OauthData.swift */; };
+		8088002A227694D300442160 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088001A227694D200442160 /* Data.swift */; };
 		8088002B227694D300442160 /* TrackData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088001B227694D200442160 /* TrackData.swift */; };
 		8088002C227694D300442160 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088001D227694D200442160 /* APIType.swift */; };
 		8088002D227694D300442160 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088001E227694D200442160 /* API.swift */; };
@@ -74,6 +75,7 @@
 		803DF78322782DE40046709A /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		803DF78522783E440046709A /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		8044EB872293CD9700F9512F /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
+		8075732F2294FDB000AC63D5 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		80880005227694D200442160 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		80880006227694D200442160 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		80880012227694D200442160 /* PlayListTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListTVCell.swift; sourceTree = "<group>"; };
@@ -81,7 +83,7 @@
 		80880016227694D200442160 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		80880018227694D200442160 /* PlayListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListData.swift; sourceTree = "<group>"; };
 		80880019227694D200442160 /* RealmData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
-		8088001A227694D200442160 /* OauthData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthData.swift; sourceTree = "<group>"; };
+		8088001A227694D200442160 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		8088001B227694D200442160 /* TrackData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackData.swift; sourceTree = "<group>"; };
 		8088001D227694D200442160 /* APIType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
 		8088001E227694D200442160 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				8088001D227694D200442160 /* APIType.swift */,
 				8088001E227694D200442160 /* API.swift */,
 				803DF7752276C4BB0046709A /* Extension.swift */,
+				8075732F2294FDB000AC63D5 /* AlertManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -317,7 +320,7 @@
 		8088005122769E2100442160 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				8088001A227694D200442160 /* OauthData.swift */,
+				8088001A227694D200442160 /* Data.swift */,
 				8088005222769E5500442160 /* User.swift */,
 			);
 			path = User;
@@ -639,7 +642,7 @@
 				80880026227694D300442160 /* PlayListViewController.swift in Sources */,
 				80880020227694D300442160 /* TabBarViewController.swift in Sources */,
 				803DF78422782DE40046709A /* FavoriteViewModel.swift in Sources */,
-				8088002A227694D300442160 /* OauthData.swift in Sources */,
+				8088002A227694D300442160 /* Data.swift in Sources */,
 				80880027227694D300442160 /* RealmManager.swift in Sources */,
 				8088002C227694D300442160 /* APIType.swift in Sources */,
 				8044EB882293CD9700F9512F /* ViewControllerProtocol.swift in Sources */,
@@ -652,6 +655,7 @@
 				8088003E227694DF00442160 /* AlbumDetailVC.swift in Sources */,
 				8088001F227694D300442160 /* ViewController.swift in Sources */,
 				80880025227694D300442160 /* PlayListTVCell.swift in Sources */,
+				807573302294FDB000AC63D5 /* AlertManager.swift in Sources */,
 				803DF7762276C4BB0046709A /* Extension.swift in Sources */,
 				8088003C227694DF00442160 /* FavoriteViewController.swift in Sources */,
 				8088005322769E5500442160 /* User.swift in Sources */,

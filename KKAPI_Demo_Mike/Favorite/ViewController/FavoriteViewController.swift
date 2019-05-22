@@ -21,31 +21,30 @@ class FavoriteViewController: UIViewController {
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
-        initial()
-        binding()
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "pushToAlbumDetailVC"{
-            let vc = segue.destination as! AlbumDetailVC
-            let data = sender as! AlbumData
-            vc.albumData = data
-            vc.navigationItem.title = data.name
-        }
+        self.initial()
+        self.binding()
     }
 }
 
 extension FavoriteViewController : ViewControllerProtocol{
     func initial(){
-        viewModel = FavoriteViewModel()
-        disposebag = DisposeBag()
+        self.viewModel = FavoriteViewModel()
+        self.disposebag = DisposeBag()
     }
     func binding(){
-        viewModel.output.dataList.asDriver(onErrorJustReturn: []).drive(tableView.rx.items(cellIdentifier: "FavoriteTVCellID", cellType: FavoriteTVCell.self)){
+        self.viewModel.output.dataList.asDriver(onErrorJustReturn: []).drive(tableView.rx.items(cellIdentifier: "FavoriteTVCellID", cellType: FavoriteTVCell.self)){
             (_,data,cell) in
             cell.setupCell(title: data.name, imageURL: data.imageURL)
-        }.disposed(by: disposebag)
-        tableView.rx.modelSelected(AlbumData.self).subscribe(onNext: { (data) in
-            self.performSegue(withIdentifier: "pushToAlbumDetailVC", sender: data)
-        }).disposed(by: disposebag)
+            }.disposed(by: self.disposebag)
+        self.tableView.rx.modelSelected(AlbumData.self).subscribe(onNext:{ [weak self](data) in
+            self?.push(Album, data: data)
+        }).disposed(by: self.disposebag)
+    }
+    func push(_ vc:String , data:AlbumData){
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: vc) as! AlbumDetailVC
+        vc.navigationItem.title = data.name
+        vc.albumData = data
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

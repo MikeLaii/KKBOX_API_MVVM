@@ -9,26 +9,28 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     var model : SignInModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initial()
-        requestAuth()
+        self.initial()
+        self.quickSignIn()
     }
 }
 
 extension ViewController {
-    
     func initial(){
-        model = SignInModel()
+        self.model = SignInModel()
         print("file url:\(RealmManager.share.realm.configuration.fileURL!)")
     }
-    func requestAuth(){
-        model.defaultSignIn { (completion) in
+    func quickSignIn(){
+        self.model.defaultSignIn { (completion) in
             if completion{
-                self.performSegue(withIdentifier: "pushToTabBarVC", sender: nil)
+                let sb = UIStoryboard.init(name: "Main", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "TabVC") as! TabBarViewController
+                self.show(vc, sender: nil)
+            }else{
+                AlertManager.share.showMessage("無法取得token！\n請檢查kkbox id是否過期。", delegate: self)
             }
         }
     }

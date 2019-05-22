@@ -19,13 +19,13 @@ class FavoriteViewModel {
     var dataListRelay : BehaviorRelay<[AlbumData]>
     
     init() {
-        dataListRelay = BehaviorRelay.init(value: [])
-        output = FavoriteOutput.init(dataList: dataListRelay.asDriver())
-        getRealmList()
+        self.dataListRelay = BehaviorRelay.init(value: [])
+        self.output = FavoriteOutput.init(dataList: dataListRelay.asDriver())
+        self.getRealmList()
     }
     
     func getRealmList(){
         let realmList = RealmManager.share.realm.objects(UserData.self).filter("token = '\(User.current.token)'").first!.favoriteList
-        dataListRelay.accept(realmList.toArray(ofType: AlbumData.self))
+        self.dataListRelay.accept(realmList.toArray(ofType: AlbumData.self))
     }
 }

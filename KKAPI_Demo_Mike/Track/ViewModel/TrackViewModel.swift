@@ -22,16 +22,16 @@ class TrackViewModel {
     var dataListRelay : BehaviorRelay<[PlayListDataByIDTracksData]>
     
     init(_ id : String) {
-        dataListRelay = BehaviorRelay.init(value: [])
-        input = TrackInput.init(id: id)
-        output = TrackOutput.init(dataList: dataListRelay.asDriver())
-        getTrackList()
+        self.dataListRelay = BehaviorRelay.init(value: [])
+        self.input = TrackInput.init(id: id)
+        self.output = TrackOutput.init(dataList: dataListRelay.asDriver())
+        self.getTrackList()
     }
     
     func getTrackList(){
-        _ = User.current.fetchPlayList(type: .playListDetail, id: input.id).subscribe(onSuccess: { (data) in
+        _ = User.current.fetchPlayList(type: .playListDetail, id: input.id).subscribe(onSuccess: { [weak self](data) in
             if let json = try? JSONDecoder().decode(PlayListDataByID.self, from: data ){
-                self.dataListRelay.accept(json.tracks.data)
+                self?.dataListRelay.accept(json.tracks.data)
             }
         }, onError: nil)
     }

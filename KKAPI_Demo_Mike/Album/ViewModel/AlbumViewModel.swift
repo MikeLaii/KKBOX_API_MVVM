@@ -35,25 +35,25 @@ class AlbumViewModel {
     let publishTap = PublishSubject<Void>()
     
     init(_ model : AlbumData) {
-        input = AlbumInput.init(model: model)
-        output = AlbumOutput.init(albumName: albumNameRelay.asDriver(),
-                                  albumReleaseDate: albumReleaseDateRelay.asDriver(),
-                                  albumImageURL: albumImageURLRelay.asDriver(),
-                                  artistName: artistNameRelay.asDriver(),
-                                  artistImageURL: artistImageURLRelay.asDriver(),
-                                  isFavorited: isFavoritedRelay.asDriver())
-        setupData()
+        self.input = AlbumInput.init(model: model)
+        self.output = AlbumOutput.init(albumName: self.albumNameRelay.asDriver(),
+                                  albumReleaseDate: self.albumReleaseDateRelay.asDriver(),
+                                  albumImageURL: self.albumImageURLRelay.asDriver(),
+                                  artistName: self.artistNameRelay.asDriver(),
+                                  artistImageURL: self.artistImageURLRelay.asDriver(),
+                                  isFavorited: self.isFavoritedRelay.asDriver())
+        self.setupData()
     }
 }
 
 extension AlbumViewModel{
     func setupData(){
-        albumNameRelay.accept(input.model.albumName)
-        albumReleaseDateRelay.accept(input.model.albumRelease)
-        albumImageURLRelay.accept(input.model.albumImageURL)
-        artistNameRelay.accept(input.model.albumArtistName)
-        artistImageURLRelay.accept(input.model.albumArtistImageURL)
-        isFavoritedRelay.accept(isFavorited())
+        self.albumNameRelay.accept(input.model.albumName)
+        self.albumReleaseDateRelay.accept(input.model.albumRelease)
+        self.albumImageURLRelay.accept(input.model.albumImageURL)
+        self.artistNameRelay.accept(input.model.albumArtistName)
+        self.artistImageURLRelay.accept(input.model.albumArtistImageURL)
+        self.isFavoritedRelay.accept(isFavorited())
         _ = publishTap.bind { [weak self] _ in
             let nextState = !(self?.isFavoritedRelay.value)!
             self?.realmAccess(nextState, completion: { (success) in
@@ -83,8 +83,8 @@ extension AlbumViewModel{
                 }
             }
         }else{
-            if let object = realm.realm.objects(AlbumData.self).filter("id = '\(input.model.id)'").first{
-                input.model = AlbumData.init(value: object)
+            if let object = realm.realm.objects(AlbumData.self).filter("id = '\(self.input.model.id)'").first{
+                self.input.model = AlbumData.init(value: object)
                 realm.realm.beginWrite()
                 realm.realm.delete(object)
                 do {

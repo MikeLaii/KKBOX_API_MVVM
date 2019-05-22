@@ -25,39 +25,39 @@ class AlbumDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initial()
-        setupBarButtonItem()
-        binding()
+        self.initial()
+        self.setupBarButtonItem()
+        self.binding()
     }
 }
 
 extension AlbumDetailVC : ViewControllerProtocol {
     func initial(){
-        disposeBag = DisposeBag()
-        viewModel = AlbumViewModel.init(albumData)
+        self.disposeBag = DisposeBag()
+        self.viewModel = AlbumViewModel.init(albumData)
     }
     func setupBarButtonItem(){
-        button = UIButton()
-        button.tintColor = #colorLiteral(red: 0.8413805962, green: 0.3514380455, blue: 0.2925212979, alpha: 1)
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: button)
+        self.button = UIButton()
+        self.button.tintColor = #colorLiteral(red: 0.8413805962, green: 0.3514380455, blue: 0.2925212979, alpha: 1)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: button)
     }
     func binding(){
-        viewModel.output.albumName.drive(albumNameLabel.rx.text).disposed(by: disposeBag)
-        viewModel.output.albumReleaseDate.drive(albumDateLabel.rx.text).disposed(by: disposeBag)
-        viewModel.output.artistName.drive(artistNameLabel.rx.text).disposed(by: disposeBag)
-        viewModel.output.albumImageURL.asObservable().bind{ [weak self](url) in
+        self.viewModel.output.albumName.drive(albumNameLabel.rx.text).disposed(by: disposeBag)
+        self.viewModel.output.albumReleaseDate.drive(albumDateLabel.rx.text).disposed(by: disposeBag)
+        self.viewModel.output.artistName.drive(artistNameLabel.rx.text).disposed(by: disposeBag)
+        self.viewModel.output.albumImageURL.asObservable().bind{ [weak self](url) in
             self?.albumImageView.sd_setImage(with: URL.init(string: url)!, completed: nil)
         }.disposed(by: disposeBag)
-        viewModel.output.artistImageURL.asObservable().bind{ [weak self](url) in
+        self.viewModel.output.artistImageURL.asObservable().bind{ [weak self](url) in
             self?.artistImageView.sd_setImage(with: URL.init(string: url)!, completed: nil)
             }.disposed(by: disposeBag)
-        viewModel.output.isFavorited.asObservable().bind{ [weak self](isFavorite) in
+        self.viewModel.output.isFavorited.asObservable().bind{ [weak self](isFavorite) in
             if isFavorite{
                 self?.button.setImage(UIImage.init(named: "fullLove"), for: .normal)
             }else{
                 self?.button.setImage(UIImage.init(named: "defaultLove"), for: .normal)
             }
             }.disposed(by: disposeBag)
-        button.rx.tap.subscribe(viewModel.publishTap).disposed(by: disposeBag)
+        self.button.rx.tap.subscribe(viewModel.publishTap).disposed(by: disposeBag)
     }
 }

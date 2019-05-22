@@ -19,15 +19,15 @@ class PlayListViewModel {
     let dataListRelay : BehaviorRelay<[PlayListDataDetail]>
     
     init() {
-        dataListRelay = BehaviorRelay.init(value: [])
-        output = PlayListOutput.init(dataList: dataListRelay.asDriver())
-        getPlayList()
+        self.dataListRelay = BehaviorRelay.init(value: [])
+        self.output = PlayListOutput.init(dataList: dataListRelay.asDriver())
+        self.getPlayList()
     }
     
     func getPlayList(){
-        _ = User.current.fetchPlayList(type: .playList, id: nil).subscribe(onSuccess: { (data) in            
+        _ = User.current.fetchPlayList(type: .playList, id: nil).subscribe(onSuccess: { [weak self](data) in
             if let json = try? JSONDecoder().decode(PlayListData.self, from:data ){
-                self.dataListRelay.accept(json.data)
+                self?.dataListRelay.accept(json.data)
             }
         }, onError: nil)
     }

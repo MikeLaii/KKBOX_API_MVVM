@@ -19,35 +19,30 @@ class PlayListViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initial()
-        binding()
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "pushToTrackVC" {
-            let vc = segue.destination as! TrackVC
-            let data = sender as! PlayListDataDetail
-            vc.navigationItem.title = data.title
-            vc.id = data.id
-        }
+        self.initial()
+        self.binding()
     }
 }
 
 extension PlayListViewController : ViewControllerProtocol{
     func initial(){
-        viewModel = PlayListViewModel()
-        disposeBag = DisposeBag()
+        self.viewModel = PlayListViewModel()
+        self.disposeBag = DisposeBag()
     }
     func binding(){
-        viewModel.output.dataList.asDriver(onErrorJustReturn: []).drive(tableView.rx.items(cellIdentifier: "PlayListCell", cellType: PlayListTVCell.self)){
+        self.viewModel.output.dataList.asDriver(onErrorJustReturn: []).drive(tableView.rx.items(cellIdentifier: "PlayListCell", cellType: PlayListTVCell.self)){
             (_,data,cell)in
             cell.setupCell(title: data.title, imageURL: data.images.first!.url)
-            }.disposed(by: disposeBag)
-        tableView.rx.modelSelected(PlayListDataDetail.self).subscribe(onNext: { [weak self](data) in
-            self?.performSegue(withIdentifier: "pushToTrackVC", sender: data)
-            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "track") as! PlayListViewController
-            self?.navigationController?.pushViewController(vc, animated: true)
-        }).disposed(by: disposeBag)
-        
+            }.disposed(by: self.disposeBag)
+        self.tableView.rx.modelSelected(PlayListDataDetail.self).subscribe(onNext:{ [weak self](data) in
+            self?.push(Track, data: data)
+        }).disposed(by: self.disposeBag)
+    }
+    func push(_ vc:String , data:PlayListDataDetail){
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: vc) as! TrackVC
+        vc.navigationItem.title = data.title
+        vc.id = data.id
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
