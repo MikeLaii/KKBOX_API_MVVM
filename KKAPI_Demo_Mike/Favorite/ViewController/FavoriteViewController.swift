@@ -11,9 +11,7 @@ import RxCocoa
 import RxSwift
 
 class FavoriteViewController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
-  
     var viewModel : FavoriteViewModel!
     var disposebag : DisposeBag!
     
@@ -25,7 +23,6 @@ class FavoriteViewController: UIViewController {
         self.binding()
     }
 }
-
 extension FavoriteViewController : ViewControllerProtocol{
     func initial(){
         self.viewModel = FavoriteViewModel()

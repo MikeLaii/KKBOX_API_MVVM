@@ -21,7 +21,6 @@ class User {
         }
     }
 }
-
 //MARK: - fetch UserToken
 extension User {
     func getToken() -> Single<String>{
@@ -39,7 +38,6 @@ extension User {
             return Disposables.create()
         })
     }
-    
     func fetchToken()->Single<String>{
         return Single<String>.create(subscribe: { (single) -> Disposable in
             let body = ["grant_type": APIBody.grantType.rawValue,
@@ -62,7 +60,6 @@ extension User {
         })
     }
 }
-
 //MARK: - fetch PlayList
 extension User{
     func fetchPlayList(type:PlayListType,id:String?) -> Single<Data> {

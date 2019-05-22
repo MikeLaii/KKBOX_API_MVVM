@@ -9,7 +9,6 @@
 import UIKit
 
 class SignInModel {
-    
     func defaultSignIn(completion:@escaping (Bool)->Void){
         _ = User.current.getToken().subscribe(onSuccess: { (token) in
             if !token.isEmpty{

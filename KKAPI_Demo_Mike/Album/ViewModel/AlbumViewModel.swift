@@ -6,7 +6,6 @@
 //  Copyright © 2019 Mike.Lai. All rights reserved.
 //
 
-import UIKit
 import RxCocoa
 import RxSwift
 
@@ -24,14 +23,12 @@ class AlbumViewModel {
     }
     var input : AlbumInput
     var output : AlbumOutput
-    
     let albumNameRelay: BehaviorRelay<String> = BehaviorRelay(value: "")
     let albumReleaseDateRelay: BehaviorRelay<String> = BehaviorRelay(value: "")
     let albumImageURLRelay: BehaviorRelay<String> = BehaviorRelay(value: "")
     let artistNameRelay: BehaviorRelay<String> = BehaviorRelay(value: "")
     let artistImageURLRelay: BehaviorRelay<String> = BehaviorRelay(value: "")
     let isFavoritedRelay: BehaviorRelay<Bool> = BehaviorRelay(value: false)
-    
     let publishTap = PublishSubject<Void>()
     
     init(_ model : AlbumData) {
@@ -45,7 +42,6 @@ class AlbumViewModel {
         self.setupData()
     }
 }
-
 extension AlbumViewModel{
     func setupData(){
         self.albumNameRelay.accept(input.model.albumName)

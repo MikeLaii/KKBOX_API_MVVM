@@ -6,12 +6,10 @@
 //  Copyright © 2019 Mike.Lai. All rights reserved.
 //
 
-import UIKit
 
 class PlayListData : Codable {
     var data : [PlayListDataDetail]
 }
-
 class PlayListDataDetail : Codable{
     var id : String
     var description: String
@@ -19,7 +17,6 @@ class PlayListDataDetail : Codable{
     var url : String
     var images : [PlayListDataDetailImage]
 }
-
 class PlayListDataDetailImage : Codable {
     var url: String
     var height: Int

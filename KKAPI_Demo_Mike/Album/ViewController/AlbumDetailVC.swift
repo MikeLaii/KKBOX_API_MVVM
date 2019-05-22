@@ -11,13 +11,11 @@ import RxCocoa
 import RxSwift
 
 class AlbumDetailVC: UIViewController {
-    
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var artistImageView: UIImageView!
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var albumDateLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
-    
     var viewModel : AlbumViewModel!
     var albumData : AlbumData!
     var disposeBag : DisposeBag!

@@ -17,7 +17,6 @@ class ViewController: UIViewController {
         self.quickSignIn()
     }
 }
-
 extension ViewController {
     func initial(){
         self.model = SignInModel()

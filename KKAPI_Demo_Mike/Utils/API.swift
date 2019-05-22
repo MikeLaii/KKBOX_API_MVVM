@@ -6,11 +6,9 @@
 //  Copyright © 2019 Mike.Lai. All rights reserved.
 //
 
-import UIKit
 import RxSwift
 
 class API {
-    
     static let share = API()
     
     func fetchAPI(_ urlString:String , method:HttpMethod , body:Data? , header:[String:String]) -> Single<Data>{

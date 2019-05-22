@@ -6,11 +6,9 @@
 //  Copyright © 2019 Mike.Lai. All rights reserved.
 //
 
-import UIKit
 import RealmSwift
 
 class UserData: Object {
-
     @objc dynamic var token : String = ""
     dynamic var favoriteList = List<AlbumData>()
     
@@ -18,9 +16,7 @@ class UserData: Object {
         return "token"
     }
 }
-
 class AlbumData : Object{
-    
     @objc dynamic var id: String = ""
     @objc dynamic var name : String = ""
     @objc dynamic var imageURL : String = ""
@@ -33,7 +29,6 @@ class AlbumData : Object{
     override static func primaryKey() -> String {
         return "id"
     }
-
     func setData(data : PlayListDataByIDTracksData) {
         self.id = data.id
         self.name = data.name

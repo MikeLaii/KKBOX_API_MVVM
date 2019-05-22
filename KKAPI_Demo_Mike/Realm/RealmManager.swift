@@ -13,16 +13,13 @@ enum WriteType {
     case add
     case delete
 }
-
 class RealmManager {
-    
     static let share = RealmManager()
     let realm : Realm
-    
+
     private init() {
         self.realm = try! Realm()
     }
-    
     func tryWrite(_ object : Object ,type:WriteType, complete:(Bool)->Void){
         do {
             try self.realm.write {

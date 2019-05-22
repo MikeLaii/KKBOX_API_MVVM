@@ -6,12 +6,9 @@
 //  Copyright © 2019 Mike.Lai. All rights reserved.
 //
 
-import UIKit
-
 class OauthData : Codable {
     var access_token : String?
     var error : String?
 }
-
 let Track = "TrackVC"
 let Album = "AlbumVC"

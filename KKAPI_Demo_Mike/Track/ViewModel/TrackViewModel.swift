@@ -6,7 +6,6 @@
 //  Copyright © 2019 Mike.Lai. All rights reserved.
 //
 
-import UIKit
 import RxCocoa
 import RxSwift
 
@@ -27,7 +26,6 @@ class TrackViewModel {
         self.output = TrackOutput.init(dataList: dataListRelay.asDriver())
         self.getTrackList()
     }
-    
     func getTrackList(){
         _ = User.current.fetchPlayList(type: .playListDetail, id: input.id).subscribe(onSuccess: { [weak self](data) in
             if let json = try? JSONDecoder().decode(PlayListDataByID.self, from: data ){

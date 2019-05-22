@@ -6,12 +6,10 @@
 //  Copyright © 2019 Mike.Lai. All rights reserved.
 //
 
-import UIKit
 import RxCocoa
 import RxSwift
 
 class FavoriteViewModel {
-    
     struct FavoriteOutput {
         let dataList : Driver<[AlbumData]>
     }
@@ -23,7 +21,6 @@ class FavoriteViewModel {
         self.output = FavoriteOutput.init(dataList: dataListRelay.asDriver())
         self.getRealmList()
     }
-    
     func getRealmList(){
         let realmList = RealmManager.share.realm.objects(UserData.self).filter("token = '\(User.current.token)'").first!.favoriteList
         self.dataListRelay.accept(realmList.toArray(ofType: AlbumData.self))

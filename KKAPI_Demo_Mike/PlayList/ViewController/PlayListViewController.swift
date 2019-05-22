@@ -11,9 +11,7 @@ import RxSwift
 import RxCocoa
 
 class PlayListViewController: UIViewController  {
-
     @IBOutlet weak var tableView: UITableView!
-    
     var viewModel : PlayListViewModel!
     var disposeBag : DisposeBag!
     
@@ -23,7 +21,6 @@ class PlayListViewController: UIViewController  {
         self.binding()
     }
 }
-
 extension PlayListViewController : ViewControllerProtocol{
     func initial(){
         self.viewModel = PlayListViewModel()

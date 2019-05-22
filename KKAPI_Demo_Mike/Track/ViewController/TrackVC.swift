@@ -11,9 +11,7 @@ import RxSwift
 import RxCocoa
 
 class TrackVC: UIViewController {
-
     @IBOutlet weak var tableView: UITableView!
-    
     var viewModel : TrackViewModel!
     var disposeBag : DisposeBag!
     var id : String!
@@ -24,7 +22,6 @@ class TrackVC: UIViewController {
         self.binding()
     }
 }
-
 extension TrackVC : ViewControllerProtocol {
     func initial(){
         self.disposeBag = DisposeBag()

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Mike.Lai. All rights reserved.
 //
 
-import UIKit
-
 protocol ViewControllerProtocol {
     func initial()
     func binding()

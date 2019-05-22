@@ -6,7 +6,6 @@
 //  Copyright © 2019 Mike.Lai. All rights reserved.
 //
 
-import UIKit
 import SDWebImage
 import RealmSwift
 
@@ -20,13 +19,11 @@ extension Dictionary where Key == String {
         return str
     }
 }
-
 extension UIImageView {
     func setImage(_ urlString: String){
         self.sd_setImage(with: URL.init(string: urlString)!, completed: nil)
     }
 }
-
 extension List {
     func toArray<T>(ofType: T.Type) -> [T] {
         var array = [T]()

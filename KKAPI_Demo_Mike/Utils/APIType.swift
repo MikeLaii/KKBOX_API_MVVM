@@ -6,7 +6,6 @@
 //  Copyright © 2019 Mike.Lai. All rights reserved.
 //
 
-import UIKit
 
 enum HttpMethod : String {
     case post = "POST"
